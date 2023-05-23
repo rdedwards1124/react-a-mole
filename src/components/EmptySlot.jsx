@@ -1,8 +1,20 @@
+import {useEffect} from 'react'
 import molehill from '../assets/molehill.png'
 
-function EmptySlot(){
+function EmptySlot(props){
+    useEffect(()=>{
+        let randomSeconds = Math.ceil(Math.random()*9000)
+        let timer = setTimeout(()=>{
+            props.toggle(true)
+        }, randomSeconds)
+        return ()=>clearTimeout(timer)
+    })
+
     return (
-        <img src={molehill} alt="Molehill"></img>
+        <>
+            <img style={{'width': '30vw'}} src={molehill} alt="Molehill"/>
+        </>
+        
     )
 }
 

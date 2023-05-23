@@ -1,8 +1,20 @@
+import {useEffect} from 'react'
 import mole from '../assets/mole.png'
 
-function Mole(){
+function Mole(props){
+    useEffect(()=>{
+        let randomSeconds = Math.ceil(Math.random()*2000)
+        let timer = setTimeout(()=>{
+            props.toggle(false)
+        }, randomSeconds)
+        return ()=>clearTimeout(timer)
+    })
+
     return (
-        <img src={mole} alt="Mole"></img>
+        <>
+            <img style={{'width': '30vw'}} src={mole} onClick={props.handleBop} alt="Mole"/>
+        </>
+        
     )
 }
 
