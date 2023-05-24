@@ -5,7 +5,7 @@ function EmptySlot(props){
     useEffect(()=>{
         let randomSeconds = Math.ceil(Math.random()*9000)
         let timer = setTimeout(()=>{
-            props.toggle(true)
+            props.setDisplayMole(true)
         }, randomSeconds)
         return ()=>clearTimeout(timer)
     })
